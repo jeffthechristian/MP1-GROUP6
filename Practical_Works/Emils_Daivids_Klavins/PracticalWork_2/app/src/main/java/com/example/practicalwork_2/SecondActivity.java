@@ -1,11 +1,18 @@
 package com.example.practicalwork_2;
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -23,4 +30,5 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
 }
