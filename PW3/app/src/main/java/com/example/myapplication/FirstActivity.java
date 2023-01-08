@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    Button button = findViewById(R.id.buttonSave);
+
     private Spinner spinner;
     private static final String[] paths = {"Default", "Light theme", "Dark theme"};
     String mode;
@@ -26,21 +26,24 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
-        Button btnGoSecond = (Button) findViewById(R.id.buttonGo2);
+        Button btnGoSecond = findViewById(R.id.buttonGo2);
         btnGoSecond.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            @Override
+            public void onClick(View view) {
                 startActivity(new Intent(FirstActivity.this, SecondActivity.class));
             }
-        });
+        } );
 
-        spinner = (Spinner)findViewById(R.id.dropdown);
+        spinner = findViewById(R.id.dropdown);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(FirstActivity.this,
                 android.R.layout.simple_spinner_item,paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
         sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        Button button = findViewById(R.id.buttonSave);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

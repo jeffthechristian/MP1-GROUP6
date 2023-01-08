@@ -23,14 +23,14 @@ public class SecondActivity extends AppCompatActivity {
 
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String mode = sp.getString("mode", "");
+        String moder = sp.getString("mode", "");
 
         butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences sp = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                String mode = sp.getString("mode", "Nothing found");
-                txt.setText(mode);
+                String moder = sp.getString("mode", "Nothing found");
+                txt.setText(moder);
 
             }
         });
