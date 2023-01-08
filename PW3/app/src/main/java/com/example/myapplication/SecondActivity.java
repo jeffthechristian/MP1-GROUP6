@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -29,8 +30,11 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SharedPreferences sp = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                String moder = sp.getString("mode", "Nothing found");
+                String moder = sp.getString("mode", "");
                 txt.setText(moder);
+                if (!sp.contains("mode")){
+                    Toast.makeText(SecondActivity.this, "Nothing found", Toast.LENGTH_LONG).show();
+                }
 
             }
         });

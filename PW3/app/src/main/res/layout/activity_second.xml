@@ -32,7 +32,7 @@
         android:id="@+id/textViewMode"
         android:layout_width="112dp"
         android:layout_height="20dp"
-        android:text="TextView"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
