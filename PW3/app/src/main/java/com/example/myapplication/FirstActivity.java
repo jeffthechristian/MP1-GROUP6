@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,13 +13,16 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-
+    Button button = findViewById(R.id.buttonSave);
     private Spinner spinner;
     private static final String[] paths = {"Default", "Light theme", "Dark theme"};
+    String mode;
+    SharedPreferences sp;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
@@ -35,6 +40,17 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mode = spinner.getSelectedItem().toString();
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("mode", mode);
+                editor.commit();
+
+            }
+        });
     }
 
     @Override
