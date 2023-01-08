@@ -23,8 +23,7 @@ public class SecondActivity extends AppCompatActivity {
         Button butt = findViewById(R.id.readPreBtn);
 
 
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String moder = sp.getString("mode", "");
+
 
         butt.setOnClickListener(new View.OnClickListener() {
             @Override

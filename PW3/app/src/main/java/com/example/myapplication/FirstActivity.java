@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +20,7 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
     private static final String[] paths = {"Default", "Light theme", "Dark theme"};
     String mode;
     SharedPreferences sp;
+    EditText etxt;
 
 
     @Override
@@ -25,6 +28,8 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
+
 
         Button btnGoSecond = findViewById(R.id.buttonGo2);
         btnGoSecond.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +59,10 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
 
             }
         });
+        EditText etxt;
+        etxt = findViewById(R.id.editTextMode);
+        String mod = sp.getString("mode", "");
+        etxt.setText(mod);
     }
 
     @Override
