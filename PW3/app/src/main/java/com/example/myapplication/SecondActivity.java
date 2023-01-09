@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +22,16 @@ public class SecondActivity extends AppCompatActivity {
         TextView txt;
         txt = findViewById(R.id.textViewMode);
         Button butt = findViewById(R.id.readPreBtn);
-
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String moder = sp.getString("mode", "");
+        if(sp.contains("mode")){
+            if(moder.matches("Light theme")){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            if(moder.matches("Dark theme")){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        };
 
 
 

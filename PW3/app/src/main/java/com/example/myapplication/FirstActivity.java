@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class FirstActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -28,6 +29,7 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
 
 
 
@@ -48,6 +50,14 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
         spinner.setOnItemSelectedListener(this);
 
         sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        if(sp.contains("mode")){
+            if(mode.matches("Light theme")){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            if(mode.matches("Dark theme")){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
         Button button = findViewById(R.id.buttonSave);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,13 +80,13 @@ public class FirstActivity extends AppCompatActivity implements AdapterView.OnIt
 
         switch (position) {
             case 0:
-                // Whatever you want to happen when the first item gets selected
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 break;
             case 1:
-                // Whatever you want to happen when the second item gets selected
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 break;
             case 2:
-                // Whatever you want to happen when the thrid item gets selected
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 break;
         }
     }
