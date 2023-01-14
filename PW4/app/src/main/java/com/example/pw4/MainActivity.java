@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
             button6, button7, button8,
             button9,buttonAdd, buttonSub,
             buttonMul, buttonDiv, buttonEql,
-            buttonDot, buttonDel;
+            buttonDot, buttonDel, buttonMS,
+            buttonMR, buttonMC;
     EditText inputText;
     float firstValue, secValue;
     boolean addition, subtract, multiplication, division;
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         buttonEql = (Button) findViewById(R.id.buttonEql);
         buttonDot = (Button) findViewById(R.id.buttonDot);
         buttonDel = (Button) findViewById(R.id.buttonDel);
+
+        buttonMS = (Button) findViewById(R.id.buttonMS);
+        buttonMR = (Button) findViewById(R.id.buttonMR);
+        buttonMC = (Button) findViewById(R.id.buttonMC);
 
         inputText = (EditText) findViewById(R.id.edt1);
 
