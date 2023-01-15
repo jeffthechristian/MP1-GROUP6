@@ -43,7 +43,7 @@ public class DataInput extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("gender", gender);
                 editor.putString("weight", weight);
-                editor.commit();
+                editor.apply();
                 startActivity(new Intent(DataInput.this, AlcoholCalculator.class));
             }
         } );
@@ -53,22 +53,28 @@ public class DataInput extends AppCompatActivity {
         btnSkipData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                SharedPreferences sp = getSharedPreferences("data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("gender", "0.68");
+                editor.putString("weight", "75" );
+                editor.apply();
                 startActivity(new Intent(DataInput.this, AlcoholCalculator.class));
             }
         } );
     }
     public void saveData(){
 
-    };
+    }
 
     public void skipData(){
-    };
+    }
 
     public String genderCheck() {
         String male = "0.68";
         String female = "0.55";
         String noGender = "0.68";
-        String gender = "0";
+        String gender;
 
         if(maleBox.isChecked()){
             gender=male;
@@ -76,8 +82,8 @@ public class DataInput extends AppCompatActivity {
             gender=female;
         }else{
             gender=noGender;
-        };
+        }
         return gender;
-    };
+    }
 }
 

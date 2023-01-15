@@ -13,8 +13,8 @@ import android.widget.TextView;
 import java.io.DataInput;
 
 public class AlcoholCalculator extends AppCompatActivity {
-   public static TextView alcStrengthInput, volumeInput;
-    public static Button btnSaveData2, btnBack;
+   public TextView alcStrengthInput, volumeInput;
+   public Button btnSaveData2, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class AlcoholCalculator extends AppCompatActivity {
                 double mr = weight * gender;
                 double prom = vr / mr;
                 double TSober = prom / 0.16;
-
+                SharedPreferences sp = getSharedPreferences("data", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("res", String.valueOf(prom));
                 editor.putString("res2", String.valueOf(TSober));
