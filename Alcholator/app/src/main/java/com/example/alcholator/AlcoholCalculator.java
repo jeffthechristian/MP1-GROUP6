@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.DataInput;
-
 public class AlcoholCalculator extends AppCompatActivity {
     TextView alcStrengthInput, volumeInput;
     Button btnSaveData2, btnBack;
@@ -21,43 +19,41 @@ public class AlcoholCalculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alcohol_calculator);
 
-        alcStrengthInput =(TextView) findViewById(R.id.alcStrengthInput);
-        volumeInput=(TextView) findViewById(R.id.volumeInput);
+        alcStrengthInput = findViewById(R.id.alcStrengthInput);
+        volumeInput= findViewById(R.id.volumeInput);
 
-        btnSaveData2=(Button) findViewById(R.id.btnSaveData2);
-        btnBack=(Button) findViewById(R.id.btnBack);
-
-
-        SharedPreferences sp = getApplicationContext().getSharedPreferences("data", Context.MODE_PRIVATE);
-        String sgender = sp.getString("gender", "0.68");
-        String sweight = sp.getString("weight", "75");
+        btnSaveData2= findViewById(R.id.btnSaveData2);
+        btnBack= findViewById(R.id.btnBack);
 
 
-        double gender = Double.parseDouble(sgender);
-        double weight = Double.parseDouble(sweight);
-        double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
-        double volume = Double.parseDouble(volumeInput.getText().toString());
+
+
 
 
 
         btnSaveData2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double vr = alcStrength * volume * 7.9;
+                String sgender = getIntent().getStringExtra("keygender");
+                String sweight = getIntent().getStringExtra("keyweight");
+                double gender = Double.parseDouble(sgender);
+                double weight = Double.parseDouble(sweight);
+                double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
+                double volume = Double.parseDouble(volumeInput.getText().toString());
+
+                double vr = alcStrength * (volume * 7.9);
                 double mr = weight * gender;
                 double prom = vr / mr;
-                double TSober = prom / 0.16;
+                double sober = prom / 0.16;
 
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("res", String.valueOf(prom));
-                editor.putString("res2", String.valueOf(TSober));
-                editor.apply();
-                startActivity(new Intent(AlcoholCalculator.this, DataInput.class));
+                Intent yoo = new Intent(AlcoholCalculator.this, ResultActivity.class);
+                yoo.putExtra("keyprom", prom);
+                yoo.putExtra("keysober", sober);
+                startActivity(yoo);
 
             }
         } );
 
-        Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

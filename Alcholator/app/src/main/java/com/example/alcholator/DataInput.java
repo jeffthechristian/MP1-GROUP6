@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 package com.example.alcholator;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,16 +21,13 @@ public class DataInput extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_input);
 
-        maleBox=(CheckBox) findViewById(R.id.maleBox);
-        femaleBox=(CheckBox) findViewById(R.id.femaleBox);
+        maleBox= findViewById(R.id.maleBox);
+        femaleBox= findViewById(R.id.femaleBox);
 
-        weightInput = (TextView) findViewById(R.id.weightInput);
-
-
-        String gender = genderCheck();
+        weightInput = findViewById(R.id.weightInput);
 
 
-        String weight = weightInput.getText().toString();
+
 
 
 
@@ -40,12 +36,15 @@ public class DataInput extends AppCompatActivity {
         btnSaveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DataInput.this, AlcoholCalculator.class));
-                SharedPreferences sp = getSharedPreferences("data", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("gender", gender);
-                editor.putString("weight", weight);
-                editor.apply();
+
+                String gender = genderCheck();
+                String weight = weightInput.getText().toString();
+
+                Intent intent = new Intent(DataInput.this, AlcoholCalculator.class);
+                intent.putExtra("keygender", gender);
+                intent.putExtra("keyweight", weight);
+                startActivity(intent);
+
             }
         } );
 
@@ -54,22 +53,25 @@ public class DataInput extends AppCompatActivity {
         btnSkipData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DataInput.this, AlcoholCalculator.class));
+                String gender = genderCheck();
+                String weight = weightInput.getText().toString();
+
+                Intent intent = new Intent(DataInput.this, AlcoholCalculator.class);
+                intent.putExtra("keygender", gender);
+                intent.putExtra("keyweight", weight);
+                startActivity(intent);
             }
         } );
     }
-    public void saveData(){
 
-    };
 
-    public void skipData(){
-    };
+
 
     public String genderCheck() {
         String male = "0.68";
         String female = "0.55";
         String noGender = "0.68";
-        String gender = "0";
+        String gender;
 
         if(maleBox.isChecked()){
             gender=male;
@@ -77,8 +79,8 @@ public class DataInput extends AppCompatActivity {
             gender=female;
         }else{
             gender=noGender;
-        };
+        }
         return gender;
-    };
+    }
 }
->>>>>>> Stashed changes
+
