@@ -2,10 +2,13 @@ package com.example.pw4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences sharedPref =  getSharedPreferences("MyShred", Context.MODE_PRIVATE);
 
         button0 = (Button) findViewById(R.id.button0);
         button1 = (Button) findViewById(R.id.button1);
@@ -48,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         buttonMC = (Button) findViewById(R.id.buttonMC);
 
         inputText = (EditText) findViewById(R.id.edt1);
-
 
 
         button0.setOnClickListener(new View.OnClickListener() {
@@ -124,10 +127,9 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(inputText == null) {
+                if (inputText == null) {
                     inputText.setText("");
-                }
-                else {
+                } else {
                     firstValue = Float.parseFloat(inputText.getText() + "");
                     addition = true;
                     inputText.setText(null);
@@ -138,10 +140,9 @@ public class MainActivity extends AppCompatActivity {
         buttonSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(inputText == null) {
+                if (inputText == null) {
                     inputText.setText("");
-                }
-                else {
+                } else {
                     firstValue = Float.parseFloat(inputText.getText() + "");
                     subtract = true;
                     inputText.setText(null);
@@ -152,10 +153,9 @@ public class MainActivity extends AppCompatActivity {
         buttonMul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(inputText == null) {
+                if (inputText == null) {
                     inputText.setText("");
-                }
-                else {
+                } else {
                     firstValue = Float.parseFloat(inputText.getText() + "");
                     multiplication = true;
                     inputText.setText(null);
@@ -166,10 +166,9 @@ public class MainActivity extends AppCompatActivity {
         buttonDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(inputText == null) {
+                if (inputText == null) {
                     inputText.setText("");
-                }
-                else {
+                } else {
                     firstValue = Float.parseFloat(inputText.getText() + "");
                     division = true;
                     inputText.setText(null);
@@ -197,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
                     multiplication = false;
                 }
 
-                if(division == true) {
-                    inputText.setText(firstValue/secValue+ "");
+                if (division == true) {
+                    inputText.setText(firstValue / secValue + "");
                     division = false;
                 }
             }
@@ -218,5 +217,28 @@ public class MainActivity extends AppCompatActivity {
                 inputText.setText(inputText.getText() + ".");
             }
         });
+
+        buttonMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        buttonMC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        buttonMR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 }
+
