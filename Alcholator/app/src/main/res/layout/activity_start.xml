@@ -12,12 +12,13 @@
         android:id="@+id/soulCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="I will sell my soul to Alcholator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834" />
+        app:layout_constraintVertical_bias="0.835" />
 
     <Button
         android:id="@+id/btnDataInput"
@@ -25,6 +26,7 @@
         android:layout_height="40dp"
         android:background="@drawable/button_style"
         android:text="SHOW HOW DRUNK AM I"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -38,6 +40,7 @@
         android:layout_height="wrap_content"
         android:text="ALCHOLATOR"
         android:textSize="150px"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
