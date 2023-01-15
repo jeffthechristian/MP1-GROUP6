@@ -175,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        
 
         buttonEql.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
         buttonDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -217,6 +219,8 @@ public class MainActivity extends AppCompatActivity {
                 inputText.setText(inputText.getText() + ".");
             }
         });
+
+
 
         buttonMS.setOnClickListener(new View.OnClickListener() {
             @Override
