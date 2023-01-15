@@ -124,6 +124,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        buttonMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                myEdit.putInt(String.valueOf(inputText), Integer.parseInt(inputText.getText().toString()));
+                myEdit.commit();
+            }
+        });
+
+        buttonMC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                sharedPreferences.edit().remove(String.valueOf(inputText)).commit();
+            }
+        });
+
+        buttonMR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                int numb = sharedPreferences.getInt(String.valueOf(inputText),0);
+                inputText.setText(String.valueOf(numb));
+            }
+        });
+
+
+
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -220,34 +250,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-        buttonMS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-             SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-             SharedPreferences.Editor myEdit = sharedPreferences.edit();
-             myEdit.putInt(String.valueOf(inputText), Integer.parseInt(inputText.getText().toString()));
-             myEdit.commit();
-            }
-        });
-
-        buttonMC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-                sharedPreferences.edit().remove(String.valueOf(inputText)).commit();
-            }
-        });
-
-        buttonMR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-              int numb = sharedPreferences.getInt(String.valueOf(inputText),0);
-              inputText.setText(String.valueOf(numb));
-            }
-        });
 
     }
 }
