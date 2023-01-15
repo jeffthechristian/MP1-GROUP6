@@ -38,12 +38,13 @@ public class DataInput extends AppCompatActivity {
         btnSaveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DataInput.this, AlcoholCalculator.class));
+
                 SharedPreferences sp = getSharedPreferences("data", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("gender", gender);
                 editor.putString("weight", weight);
-                editor.apply();
+                editor.commit();
+                startActivity(new Intent(DataInput.this, AlcoholCalculator.class));
             }
         } );
 
