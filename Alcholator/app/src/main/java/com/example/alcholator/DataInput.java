@@ -44,7 +44,6 @@ public class DataInput extends AppCompatActivity {
                 intent.putExtra("keygender", gender);
                 intent.putExtra("keyweight", weight);
                 startActivity(intent);
-
             }
         } );
 
@@ -54,7 +53,7 @@ public class DataInput extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String gender = genderCheck();
-                String weight = weightInput.getText().toString();
+                String weight = "75";
 
                 Intent intent = new Intent(DataInput.this, AlcoholCalculator.class);
                 intent.putExtra("keygender", gender);
