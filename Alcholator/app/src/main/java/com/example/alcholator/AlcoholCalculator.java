@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,14 @@ public class AlcoholCalculator extends AppCompatActivity {
         btnSaveData2=(Button) findViewById(R.id.btnSaveData2);
         btnBack=(Button) findViewById(R.id.btnBack);
 
+
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("data", Context.MODE_PRIVATE);
+        String sgender = sp.getString("gender", "0.68");
+        String sweight = sp.getString("weight", "75");
+
+
+        double gender = Double.parseDouble(sgender);
+        double weight = Double.parseDouble(sweight);
         double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
         double volume = Double.parseDouble(volumeInput.getText().toString());
 
@@ -32,8 +41,17 @@ public class AlcoholCalculator extends AppCompatActivity {
         btnSaveData2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                double vr = alcStrength * volume * 7.9;
+                double mr = weight * gender;
+                double prom = vr / mr;
+                double TSober = prom / 0.16;
+
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("res", String.valueOf(prom));
+                editor.putString("res2", String.valueOf(TSober));
+                editor.apply();
                 startActivity(new Intent(AlcoholCalculator.this, DataInput.class));
-                calculate();
+
             }
         } );
 
@@ -45,6 +63,5 @@ public class AlcoholCalculator extends AppCompatActivity {
             }
         } );
     }
-    public void calculate(){
-    };
+
 }
