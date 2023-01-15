@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 package com.example.alcholator;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,4 +79,4 @@ public class DataInput extends AppCompatActivity {
         return gender;
     };
 }
->>>>>>> Stashed changes
+

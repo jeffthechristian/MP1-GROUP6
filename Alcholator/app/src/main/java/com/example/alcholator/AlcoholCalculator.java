@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class AlcoholCalculator extends AppCompatActivity {
-    TextView alcStrengthInput, volumeInput;
-    Button btnSaveData2, btnBack;
+   public static TextView alcStrengthInput, volumeInput;
+    public static Button btnSaveData2, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
