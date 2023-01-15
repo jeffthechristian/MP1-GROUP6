@@ -2,6 +2,7 @@ package com.example.alcholator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class AlcoholCalculator extends AppCompatActivity {
-    private TextView alcStrengthInput, volumeInput;
-    private Button btnSaveData2, btnBack;
+    TextView alcStrengthInput, volumeInput;
+    Button btnSaveData2, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +24,10 @@ public class AlcoholCalculator extends AppCompatActivity {
         btnSaveData2=(Button) findViewById(R.id.btnSaveData2);
         btnBack=(Button) findViewById(R.id.btnBack);
 
-        double alcStrength = Integer.parseInt(alcStrengthInput.getText().toString());
-        double volume = Integer.parseInt(volumeInput.getText().toString());
+        double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
+        double volume = Double.parseDouble(volumeInput.getText().toString());
+
+
 
         btnSaveData2.setOnClickListener(new View.OnClickListener() {
             @Override
