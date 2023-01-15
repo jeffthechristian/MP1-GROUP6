@@ -22,14 +22,15 @@
     <Button
         android:id="@+id/btnDataInput"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_style"
         android:text="SHOW HOW DRUNK AM I"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.921" />
+        app:layout_constraintVertical_bias="0.904" />
 
     <TextView
         android:id="@+id/textView"
@@ -47,7 +48,6 @@
         android:id="@+id/imageView"
         android:layout_width="375dp"
         android:layout_height="441dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
