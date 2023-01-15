@@ -46,9 +46,12 @@ public class AlcoholCalculator extends AppCompatActivity {
                 double prom = vr / mr;
                 double sober = prom / 0.16;
 
+                String ssober = String.valueOf(sober);
+                String sprom = String.valueOf(prom);
+
                 Intent yoo = new Intent(AlcoholCalculator.this, ResultActivity.class);
-                yoo.putExtra("keyprom", prom);
-                yoo.putExtra("keysober", sober);
+                yoo.putExtra("keyprom", sprom);
+                yoo.putExtra("keysober", ssober);
                 startActivity(yoo);
 
             }
