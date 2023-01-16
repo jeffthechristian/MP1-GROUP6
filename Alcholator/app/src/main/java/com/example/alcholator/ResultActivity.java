@@ -31,8 +31,9 @@ public class ResultActivity extends AppCompatActivity {
         double res = Double.parseDouble(sprom);
         double res2 = Double.parseDouble(ssober);
 
-        bloodResult.setText(sprom);
-        soberResult.setText(ssober);
+
+        bloodResult.setText(sprom.substring(0,5) + " ‰");
+        soberResult.setText(ssober.substring(0,ssober.indexOf(".")) + " h");
 
         canYouDrive();
 
