@@ -17,7 +17,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        //Go to DataInput activity
+        //Go to DataInput activity or CheckboxScreen based on checkbox
         Button btnDataInput = findViewById(R.id.btnDataInput);
         CheckBox soulCheck = (CheckBox) findViewById(R.id.soulCheck);
         btnDataInput.setOnClickListener(new View.OnClickListener() {
