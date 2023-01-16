@@ -21,9 +21,9 @@ public class AlcoholCalculator extends AppCompatActivity {
         setContentView(R.layout.activity_alcohol_calculator);
 
         alcStrengthInput = findViewById(R.id.alcStrengthInput);
-        alcStrengthInput.setInputType(InputType.TYPE_CLASS_NUMBER);
+        alcStrengthInput.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         volumeInput= findViewById(R.id.volumeInput);
-        volumeInput.setInputType(InputType.TYPE_CLASS_NUMBER);
+        volumeInput.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
         btnSaveData2= findViewById(R.id.btnSaveData2);
         btnBack= findViewById(R.id.btnBack);

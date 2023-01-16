@@ -26,7 +26,7 @@ public class DataInput extends AppCompatActivity {
         femaleBox= findViewById(R.id.femaleBox);
 
         weightInput = findViewById(R.id.weightInput);
-        weightInput.setInputType(InputType.TYPE_CLASS_NUMBER);
+        weightInput.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
         maleBox.setOnClickListener(new View.OnClickListener() {
             @Override
