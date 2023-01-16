@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -16,11 +17,18 @@ public class StartActivity extends AppCompatActivity {
 
         //Go to DataInput activity
         Button btnDataInput = findViewById(R.id.btnDataInput);
+        CheckBox soulCheck = (CheckBox) findViewById(R.id.soulCheck);
         btnDataInput.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(StartActivity.this, DataInput.class));
+            public void onClick(View v) {
+                if (soulCheck.isChecked()) {
+                    Intent intent = new Intent(StartActivity.this, DataInput.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(StartActivity.this, CheckboxScreen.class);
+                    startActivity(intent);
+                }
             }
-        } );
+        });
     }
 }
