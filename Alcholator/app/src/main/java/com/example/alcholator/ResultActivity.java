@@ -8,10 +8,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
     TextView bloodResult,soberResult, yesDrive, noDrive;
+    ImageView pirmais, otrais, ceturtais, piektais, sestais, pedejais;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,13 @@ public class ResultActivity extends AppCompatActivity {
         soberResult = findViewById(R.id.soberResult);
         yesDrive = findViewById(R.id.textView16);
         noDrive = findViewById(R.id.textView17);
+
+        pirmais = findViewById(R.id.pirmais);
+        otrais = findViewById(R.id.otrais);
+        ceturtais = findViewById(R.id.ceturtais);
+        piektais = findViewById(R.id.piektais);
+        sestais = findViewById(R.id.sestais);
+        pedejais = findViewById(R.id.pedejais);
 
         String sprom = getIntent().getStringExtra("keyprom");
         String ssober = getIntent().getStringExtra("keysober");
@@ -36,6 +45,7 @@ public class ResultActivity extends AppCompatActivity {
         soberResult.setText(ssober.substring(0,ssober.indexOf(".")) + " h");
 
         canYouDrive();
+        youProbablyLook();
 
         Button btnBack2 = findViewById(R.id.btnBack2);
         btnBack2.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +59,7 @@ public class ResultActivity extends AppCompatActivity {
             }
         } );
     }
+
     void canYouDrive() {
         double promiles = Double.parseDouble(getIntent().getStringExtra("keyprom"));
         if (promiles < 0.5) {
@@ -56,6 +67,58 @@ public class ResultActivity extends AppCompatActivity {
         }
         if (promiles > 0.5) {
             noDrive.setVisibility(View.VISIBLE);
+        }
+    }
+
+    void youProbablyLook() {
+        double promiles = Double.parseDouble(getIntent().getStringExtra("keyprom"));
+        if (promiles < 1) {
+            pirmais.setVisibility(View.VISIBLE);
+            otrais.setVisibility(View.INVISIBLE);
+            ceturtais.setVisibility(View.INVISIBLE);
+            piektais.setVisibility(View.INVISIBLE);
+            sestais.setVisibility(View.INVISIBLE);
+            pedejais.setVisibility(View.INVISIBLE);
+        }
+        if (promiles < 2) {
+            pirmais.setVisibility(View.INVISIBLE);
+            otrais.setVisibility(View.VISIBLE);
+            ceturtais.setVisibility(View.INVISIBLE);
+            piektais.setVisibility(View.INVISIBLE);
+            sestais.setVisibility(View.INVISIBLE);
+            pedejais.setVisibility(View.INVISIBLE);
+        }
+        if (promiles < 3) {
+            pirmais.setVisibility(View.INVISIBLE);
+            otrais.setVisibility(View.INVISIBLE);
+            ceturtais.setVisibility(View.VISIBLE);
+            piektais.setVisibility(View.INVISIBLE);
+            sestais.setVisibility(View.INVISIBLE);
+            pedejais.setVisibility(View.INVISIBLE);
+        }
+        if (promiles < 4) {
+            pirmais.setVisibility(View.INVISIBLE);
+            otrais.setVisibility(View.INVISIBLE);
+            ceturtais.setVisibility(View.INVISIBLE);
+            piektais.setVisibility(View.VISIBLE);
+            sestais.setVisibility(View.INVISIBLE);
+            pedejais.setVisibility(View.INVISIBLE);
+        }
+        if (promiles < 5) {
+            pirmais.setVisibility(View.INVISIBLE);
+            otrais.setVisibility(View.INVISIBLE);
+            ceturtais.setVisibility(View.INVISIBLE);
+            piektais.setVisibility(View.INVISIBLE);
+            sestais.setVisibility(View.VISIBLE);
+            pedejais.setVisibility(View.INVISIBLE);
+        }
+        if (promiles > 5) {
+            pirmais.setVisibility(View.INVISIBLE);
+            otrais.setVisibility(View.INVISIBLE);
+            ceturtais.setVisibility(View.INVISIBLE);
+            piektais.setVisibility(View.INVISIBLE);
+            sestais.setVisibility(View.INVISIBLE);
+            pedejais.setVisibility(View.VISIBLE);
         }
     }
 }
