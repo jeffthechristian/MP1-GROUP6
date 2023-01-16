@@ -46,9 +46,6 @@ public class DataInput extends AppCompatActivity {
             }
         });
 
-
-
-
         //Go to alc. calculator activity with data input
         Button btnSaveData = findViewById(R.id.btnSaveData);
         btnSaveData.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +77,6 @@ public class DataInput extends AppCompatActivity {
             }
         } );
     }
-
-
-
 
     public String genderCheck() {
         String male = "0.68";
