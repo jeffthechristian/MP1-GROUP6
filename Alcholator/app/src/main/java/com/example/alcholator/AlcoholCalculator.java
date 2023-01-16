@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,16 +21,12 @@ public class AlcoholCalculator extends AppCompatActivity {
         setContentView(R.layout.activity_alcohol_calculator);
 
         alcStrengthInput = findViewById(R.id.alcStrengthInput);
+        alcStrengthInput.setInputType(InputType.TYPE_CLASS_NUMBER);
         volumeInput= findViewById(R.id.volumeInput);
+        volumeInput.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         btnSaveData2= findViewById(R.id.btnSaveData2);
         btnBack= findViewById(R.id.btnBack);
-
-
-
-
-
-
 
         btnSaveData2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +50,6 @@ public class AlcoholCalculator extends AppCompatActivity {
                 yoo.putExtra("keyprom", sprom);
                 yoo.putExtra("keysober", ssober);
                 startActivity(yoo);
-
             }
         } );
 
@@ -64,5 +60,4 @@ public class AlcoholCalculator extends AppCompatActivity {
             }
         } );
     }
-
 }
