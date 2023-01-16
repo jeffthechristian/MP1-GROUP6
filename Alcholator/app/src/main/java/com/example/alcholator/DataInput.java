@@ -52,8 +52,14 @@ public class DataInput extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 String gender = genderCheck();
                 String weight = weightInput.getText().toString();
+                SharedPreferences pref = getSharedPreferences("data",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("keygender", gender);
+                editor.putString("keyweight", weight);
+                editor.apply();
 
                 Intent intent = new Intent(DataInput.this, AlcoholCalculator.class);
                 intent.putExtra("keygender", gender);

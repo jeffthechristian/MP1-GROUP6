@@ -25,7 +25,7 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences pref = getSharedPreferences("data",Context.MODE_PRIVATE);
                 String sgender = pref.getString("keygender", null);
-                String sweight = pref.getString("keygender", "0.68");
+                String sweight = pref.getString("keyweight", "0.68");
                 if(sgender == null){
                     if (soulCheck.isChecked()) {
                         Intent intent = new Intent(StartActivity.this, DataInput.class);
