@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -25,8 +26,25 @@ public class DataInput extends AppCompatActivity {
         femaleBox= findViewById(R.id.femaleBox);
 
         weightInput = findViewById(R.id.weightInput);
+        weightInput.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+        maleBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(((CheckBox)v).isChecked()) {
+                    femaleBox.setChecked(false);
+                }
+            }
+        });
 
+        femaleBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(((CheckBox)v).isChecked()) {
+                    maleBox.setChecked(false);
+                }
+            }
+        });
 
 
 
