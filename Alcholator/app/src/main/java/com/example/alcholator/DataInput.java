@@ -58,6 +58,7 @@ public class DataInput extends AppCompatActivity {
                 Intent intent = new Intent(DataInput.this, AlcoholCalculator.class);
                 intent.putExtra("keygender", gender);
                 intent.putExtra("keyweight", weight);
+
                 startActivity(intent);
             }
         } );
