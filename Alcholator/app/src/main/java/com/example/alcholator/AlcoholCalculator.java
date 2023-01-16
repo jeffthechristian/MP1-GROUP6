@@ -10,6 +10,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AlcoholCalculator extends AppCompatActivity {
     TextView alcStrengthInput, volumeInput;
@@ -35,23 +36,27 @@ public class AlcoholCalculator extends AppCompatActivity {
                 String sweight = getIntent().getStringExtra("keyweight");
                 double gender = Double.parseDouble(sgender);
                 double weight = Double.parseDouble(sweight);
-                double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
-                double volume = Double.parseDouble(volumeInput.getText().toString());
+                try {
+                    double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
+                    double volume = Double.parseDouble(volumeInput.getText().toString());
 
-                double vr = alcStrength * (volume * 7.9);
-                double mr = weight * gender;
-                double prom = vr / mr;
-                double sober = prom / 0.16;
+                    double vr = alcStrength * (volume * 7.9);
+                    double mr = weight * gender;
+                    double prom = vr / mr;
+                    double sober = prom / 0.16;
 
-                String ssober = String.valueOf(sober);
-                String sprom = String.valueOf(prom);
+                    String ssober = String.valueOf(sober);
+                    String sprom = String.valueOf(prom);
 
-                Intent yoo = new Intent(AlcoholCalculator.this, ResultActivity.class);
-                yoo.putExtra("keyprom", sprom);
-                yoo.putExtra("keysober", ssober);
-                yoo.putExtra("keygender", sgender);
-                yoo.putExtra("keyweight", sweight);
-                startActivity(yoo);
+                    Intent yoo = new Intent(AlcoholCalculator.this, ResultActivity.class);
+                    yoo.putExtra("keyprom", sprom);
+                    yoo.putExtra("keysober", ssober);
+                    yoo.putExtra("keygender", sgender);
+                    yoo.putExtra("keyweight", sweight);
+                    startActivity(yoo);
+                } catch (Exception e) {
+                    Toast.makeText(AlcoholCalculator.this, "Please enter necessary data", Toast.LENGTH_LONG).show();
+                }
             }
         } );
 
