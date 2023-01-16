@@ -72,6 +72,7 @@ public class ResultActivity extends AppCompatActivity {
 
     void youProbablyLook() {
         double promiles = Double.parseDouble(getIntent().getStringExtra("keyprom"));
+
         if (promiles < 1) {
             pirmais.setVisibility(View.VISIBLE);
             otrais.setVisibility(View.INVISIBLE);
