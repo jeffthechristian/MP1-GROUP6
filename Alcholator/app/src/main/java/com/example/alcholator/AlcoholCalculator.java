@@ -49,6 +49,8 @@ public class AlcoholCalculator extends AppCompatActivity {
                 Intent yoo = new Intent(AlcoholCalculator.this, ResultActivity.class);
                 yoo.putExtra("keyprom", sprom);
                 yoo.putExtra("keysober", ssober);
+                yoo.putExtra("keygender", sgender);
+                yoo.putExtra("keyweight", sweight);
                 startActivity(yoo);
             }
         } );
