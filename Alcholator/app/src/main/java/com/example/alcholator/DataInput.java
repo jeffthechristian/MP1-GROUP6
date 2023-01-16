@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DataInput extends AppCompatActivity {
     public CheckBox maleBox, femaleBox;
@@ -52,20 +53,26 @@ public class DataInput extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 String gender = genderCheck();
                 String weight = weightInput.getText().toString();
-                SharedPreferences pref = getSharedPreferences("data",Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("keygender", gender);
-                editor.putString("keyweight", weight);
-                editor.apply();
 
-                Intent intent = new Intent(DataInput.this, AlcoholCalculator.class);
-                intent.putExtra("keygender", gender);
-                intent.putExtra("keyweight", weight);
+                if(weight.contentEquals("")){
+                    Toast.makeText(DataInput.this, "Please enter necessary data", Toast.LENGTH_LONG).show();
+                }
+                else {
 
-                startActivity(intent);
+                    SharedPreferences pref = getSharedPreferences("data", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("keygender", gender);
+                    editor.putString("keyweight", weight);
+                    editor.apply();
+
+                    Intent intent = new Intent(DataInput.this, AlcoholCalculator.class);
+                    intent.putExtra("keygender", gender);
+                    intent.putExtra("keyweight", weight);
+
+                    startActivity(intent);
+                }
             }
         } );
 
