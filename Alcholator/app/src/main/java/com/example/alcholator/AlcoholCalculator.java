@@ -37,12 +37,12 @@ public class AlcoholCalculator extends AppCompatActivity {
                 String sweight = pref.getString("keyweight", "0.68");
 
                 if(sgender == null){
-
-                    sgender = getIntent().getStringExtra("keygender");
-                    sweight = getIntent().getStringExtra("keyweight");
-                    double gender = Double.parseDouble(sgender);
-                    double weight = Double.parseDouble(sweight);
                     try {
+                        sgender = getIntent().getStringExtra("keygender");
+                        sweight = getIntent().getStringExtra("keyweight");
+                        double gender = Double.parseDouble(sgender);
+                        double weight = Double.parseDouble(sweight);
+
                         double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
                         double volume = Double.parseDouble(volumeInput.getText().toString());
 
