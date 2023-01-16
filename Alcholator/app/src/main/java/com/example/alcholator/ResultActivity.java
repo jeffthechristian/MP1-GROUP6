@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
-    TextView bloodResult,soberResult;
+    TextView bloodResult,soberResult, yesDrive, noDrive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,8 @@ public class ResultActivity extends AppCompatActivity {
 
         bloodResult = findViewById(R.id.bloodResult);
         soberResult = findViewById(R.id.soberResult);
+        yesDrive = findViewById(R.id.textView16);
+        noDrive = findViewById(R.id.textView17);
 
         String sprom = getIntent().getStringExtra("keyprom");
         String ssober = getIntent().getStringExtra("keysober");
@@ -30,6 +32,8 @@ public class ResultActivity extends AppCompatActivity {
         bloodResult.setText(sprom);
         soberResult.setText(ssober);
 
+        canYouDrive();
+
         Button btnBack2 = findViewById(R.id.btnBack2);
         btnBack2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,5 +41,14 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(new Intent(ResultActivity.this, AlcoholCalculator.class));
             }
         } );
+    }
+    void canYouDrive() {
+        double promiles = Double.parseDouble(getIntent().getStringExtra("keyprom"));
+        if (promiles < 0.5) {
+            yesDrive.setVisibility(View.VISIBLE);
+        }
+        if (promiles > 0.5) {
+            noDrive.setVisibility(View.VISIBLE);
+        }
     }
 }
