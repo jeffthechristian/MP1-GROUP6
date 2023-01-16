@@ -80,7 +80,7 @@ public class ResultActivity extends AppCompatActivity {
             sestais.setVisibility(View.INVISIBLE);
             pedejais.setVisibility(View.INVISIBLE);
         }
-        if (promiles < 2) {
+        if (promiles < 2 && promiles >=1) {
             pirmais.setVisibility(View.INVISIBLE);
             otrais.setVisibility(View.VISIBLE);
             ceturtais.setVisibility(View.INVISIBLE);
@@ -88,7 +88,7 @@ public class ResultActivity extends AppCompatActivity {
             sestais.setVisibility(View.INVISIBLE);
             pedejais.setVisibility(View.INVISIBLE);
         }
-        if (promiles < 3) {
+        if (promiles < 3 && promiles >= 2) {
             pirmais.setVisibility(View.INVISIBLE);
             otrais.setVisibility(View.INVISIBLE);
             ceturtais.setVisibility(View.VISIBLE);
@@ -96,7 +96,7 @@ public class ResultActivity extends AppCompatActivity {
             sestais.setVisibility(View.INVISIBLE);
             pedejais.setVisibility(View.INVISIBLE);
         }
-        if (promiles < 4) {
+        if (promiles < 4 && promiles >=3) {
             pirmais.setVisibility(View.INVISIBLE);
             otrais.setVisibility(View.INVISIBLE);
             ceturtais.setVisibility(View.INVISIBLE);
@@ -104,7 +104,7 @@ public class ResultActivity extends AppCompatActivity {
             sestais.setVisibility(View.INVISIBLE);
             pedejais.setVisibility(View.INVISIBLE);
         }
-        if (promiles < 5) {
+        if (promiles < 5 && promiles >= 4) {
             pirmais.setVisibility(View.INVISIBLE);
             otrais.setVisibility(View.INVISIBLE);
             ceturtais.setVisibility(View.INVISIBLE);
