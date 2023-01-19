@@ -68,7 +68,7 @@ public class AlcoholCalculator extends AppCompatActivity {
                         yoo.putExtra("keyweight", sweight);
                         startActivity(yoo);
                     } catch (Exception e) {
-                        Toast.makeText(AlcoholCalculator.this, "Please enter necessary data", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AlcoholCalculator.this, "Please enter correct data", Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -100,7 +100,7 @@ public class AlcoholCalculator extends AppCompatActivity {
                         yoo.putExtra("keyweight", sweight);
                         startActivity(yoo);
                     } catch (Exception e) {
-                        Toast.makeText(AlcoholCalculator.this, "Please correct data", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AlcoholCalculator.this, "Please enter correct data", Toast.LENGTH_LONG).show();
                     }
                 }
 
