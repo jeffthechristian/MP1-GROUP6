@@ -32,9 +32,12 @@ public class AlcoholCalculator extends AppCompatActivity {
         btnSaveData2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 SharedPreferences pref = getSharedPreferences("data",Context.MODE_PRIVATE);
                 String sgender = pref.getString("keygender", null);
                 String sweight = pref.getString("keyweight", "0.68");
+
+
 
                 if(sgender == null){
                     try {
@@ -42,9 +45,13 @@ public class AlcoholCalculator extends AppCompatActivity {
                         sweight = getIntent().getStringExtra("keyweight");
                         double gender = Double.parseDouble(sgender);
                         double weight = Double.parseDouble(sweight);
-
                         double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
                         double volume = Double.parseDouble(volumeInput.getText().toString());
+
+                        if (alcStrength<=0||volume<=0){
+                            throw new Exception();
+                        }
+
 
                         double vr = alcStrength * (volume * 7.9);
                         double mr = weight * gender;
@@ -62,15 +69,22 @@ public class AlcoholCalculator extends AppCompatActivity {
                         startActivity(yoo);
                     } catch (Exception e) {
                         Toast.makeText(AlcoholCalculator.this, "Please enter necessary data", Toast.LENGTH_LONG).show();
+
                     }
                 }
                 else{
+                    sgender = getIntent().getStringExtra("keygender");
+                    sweight = getIntent().getStringExtra("keyweight");
                     double gender = Double.parseDouble(sgender);
                     double weight = Double.parseDouble(sweight);
                     try {
                         double alcStrength = Double.parseDouble(alcStrengthInput.getText().toString());
                         double volume = Double.parseDouble(volumeInput.getText().toString());
 
+
+                        if (alcStrength<=0||volume<=0){
+                            throw new Exception();
+                        }
                         double vr = alcStrength * (volume * 7.9);
                         double mr = weight * gender;
                         double prom = vr / mr;
@@ -86,7 +100,7 @@ public class AlcoholCalculator extends AppCompatActivity {
                         yoo.putExtra("keyweight", sweight);
                         startActivity(yoo);
                     } catch (Exception e) {
-                        Toast.makeText(AlcoholCalculator.this, "Please enter necessary data", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AlcoholCalculator.this, "Please correct data", Toast.LENGTH_LONG).show();
                     }
                 }
 

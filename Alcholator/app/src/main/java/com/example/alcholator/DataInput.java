@@ -56,9 +56,10 @@ public class DataInput extends AppCompatActivity {
                 String gender = genderCheck();
                 String weight = weightInput.getText().toString();
 
-                if(weight.contentEquals("")){
+                if(weight.contentEquals("")||weight.startsWith("0")){
                     Toast.makeText(DataInput.this, "Please enter necessary data", Toast.LENGTH_LONG).show();
                 }
+
                 else {
 
                     SharedPreferences pref = getSharedPreferences("data", Context.MODE_PRIVATE);
